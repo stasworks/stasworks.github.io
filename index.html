@@ -3,287 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стас Дорошенко | Визитка</title>
+    <title>Стас Дорошенко | Разработчик • дизайнер • художник </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ===========================================
-           СИСТЕМА ДИЗАЙН-ТОКЕНОВ (УПРОЩЁННАЯ)
-           =========================================== */
-        :root {
-            /* ЦВЕТА */
-            --color-primary: #0c0e10;
-            --color-surface: rgba(12, 14, 16, 0.85);
-            --color-surface-light: rgba(91, 98, 105, 0.25);
-            --color-surface-hover: rgba(255, 255, 255, 0.08);
-            
-            /* ГРАДИЕНТЫ */
-            --gradient-primary: linear-gradient(90deg, #0090de 0%, #ff00e5 100%);
-            --gradient-accent: linear-gradient(45deg, #9c63ff 0%, #ff00e5 100%);
-            --gradient-text: linear-gradient(90deg, #9c63ff 0%, #ff00e5 100%);
-            
-            /* ТЕКСТ */
-            --color-text: #ffffff;
-            --color-text-secondary: rgba(255, 255, 255, 0.85);
-            
-            /* ШРИФТ */
-            --font-family: 'Onest', system-ui, -apple-system, sans-serif;
-            
-            /* РАЗМЕРЫ */
-            --text-sm: 16px;
-            --text-base: 18px;
-            --text-lg: 24px;
-            --text-xl: 32px;
-            --text-2xl: 48px;
-            --text-3xl: 64px;
-            
-            /* ОТСТУПЫ */
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 32px;
-            --spacing-xl: 48px;
-            --spacing-2xl: 64px;
-            
-            /* СКОРУГЛЕНИЯ */
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
-            --radius-full: 9999px;
-            
-            /* ТЕНИ */
-            --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.3);
-            --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.4);
-            --shadow-accent: 0 8px 32px rgba(156, 99, 255, 0.3);
-        }
-
-        /* ===========================================
-           БАЗОВЫЕ СТИЛИ
-           =========================================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow-x: hidden;
+        :root {
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #888888;
+            --accent: #ff3366;
+            --accent-light: #ff6b9d;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --gradient-text: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
-            font-family: var(--font-family);
-            background: var(--color-primary);
-            color: var(--color-text);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(156, 99, 255, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(255, 0, 229, 0.05) 0%, transparent 20%);
+            font-family: var(--font);
+            background: var(--black);
+            color: var(--white);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--spacing-sm);
-        }
-
-        /* ===========================================
-           ГЛАВНЫЙ КОНТЕЙНЕР
-           =========================================== */
-        .visiting-card {
-            width: 100%;
-            max-width: 800px;
-            background: var(--color-surface);
-            backdrop-filter: blur(20px);
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: var(--spacing-2xl);
+            overflow-x: hidden;
             position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
         }
 
-        /* GLASSMORPHISM ЭФФЕКТ */
-        .visiting-card::before {
-            content: '';
-            position: absolute;
+        .particles {
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            height: 1px;
-            background: var(--gradient-primary);
-            opacity: 0.5;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
         }
 
-        /* ===========================================
-           ШАПКА С ИМЕНЕМ
-           =========================================== */
+        .main {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
         .header {
             text-align: center;
-            margin-bottom: var(--spacing-xl);
+            margin-bottom: 6rem;
+            position: relative;
         }
 
         .name {
-            font-size: clamp(2.5rem, 6vw, var(--text-3xl));
-            font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: var(--spacing-sm);
+            font-size: clamp(3rem, 7vw, 9rem);
+            font-weight: 200;
+            letter-spacing: -0.03em;
             background: var(--gradient-text);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
+            margin-bottom: 2rem;
         }
 
-        .title {
-            font-size: clamp(1.25rem, 3vw, var(--text-lg));
-            color: var(--color-text-secondary);
-            font-weight: 400;
-            margin-bottom: var(--spacing-md);
+        .profession {
+            font-size: clamp(1.5rem, 2vw, 2.5rem);
+            font-weight: 300;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
         }
 
-        /* ===========================================
-           ОСНОВНОЙ КОНТЕНТ
-           =========================================== */
+        .line {
+            width: 200px;
+            height: 4px;
+            background: var(--gradient);
+            margin: 0 auto;
+            border-radius: 2px;
+        }
+
         .content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-bottom: var(--spacing-xl);
+            gap: 4rem;
+            flex: 1;
         }
-
-        @media (max-width: 768px) {
-            .content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-
-        /* ФОТОГРАФИЯ */
-        .photo-container {
+        .photo-section {
             position: relative;
-            width: 100%;
-            max-width: 280px;
+            width: 400px;
+            height: 400px;
             margin: 0 auto;
         }
 
         .photo-frame {
-            position: relative;
             width: 100%;
-            aspect-ratio: 1;
-            border-radius: var(--radius-lg);
+            height: 100%;
+            border-radius: 50%;
             overflow: hidden;
-            border: 3px solid transparent;
-            background: var(--gradient-accent);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
-            box-shadow: var(--shadow-accent);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            border: 4px solid transparent;
+            background: var(--gradient) border-box;
+            box-shadow: 
+                0 0 60px rgba(102, 126, 234, 0.4),
+                0 0 100px rgba(118, 75, 162, 0.2),
+                inset 0 0 60px rgba(255, 255, 255, 0.1);
+            animation: pulse 4s ease-in-out infinite;
         }
 
-        .photo-frame:hover {
-            transform: scale(1.02) rotate(1deg);
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
         }
 
         .photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* ИНФОРМАЦИЯ */
-        .info {
-            padding: var(--spacing-md) 0;
+        .photo-frame:hover .photo {
+            transform: scale(1.1);
         }
 
         .description {
-            font-size: clamp(1.125rem, 2.5vw, var(--text-base));
+            max-width: 800px;
+            text-align: center;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
             line-height: 1.6;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-lg);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0 auto;
         }
 
         .highlight {
-            background: rgba(156, 99, 255, 0.15);
-            border-radius: 8px;
-            padding: 2px 8px;
-            margin: 0 2px;
+            color: var(--accent-light);
+            font-weight: 500;
+            position: relative;
             display: inline-block;
         }
 
-        /* ===========================================
-           КОНТАКТЫ И КНОПКИ
-           =========================================== */
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight:hover::after {
+            transform: scaleX(1);
+        }
+
         .contacts {
             display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-xl);
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem auto;
         }
 
-        .contact-item {
+        .contact-link {
             display: flex;
             align-items: center;
-            gap: var(--spacing-sm);
-            font-size: var(--text-base);
-            color: var(--color-text-secondary);
-            transition: color 0.3s ease;
-            padding: var(--spacing-sm);
-            border-radius: var(--radius-md);
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--gray);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
             background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
         }
 
-        .contact-item:hover {
-            color: var(--color-text);
-            background: var(--color-surface-hover);
-            transform: translateX(8px);
+        .contact-link:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .contact-icon {
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gradient-accent);
+            font-size: 1.5rem;
+            background: var(--gradient-text);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .contact-link {
-            color: inherit;
-            text-decoration: none;
-            flex: 1;
-        }
-
-        /* ===========================================
-           ГЛАВНАЯ КНОПКА
-           =========================================== */
-        .portfolio-button {
+        .cta-button {
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: var(--spacing-sm);
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            padding: var(--spacing-lg) var(--spacing-xl);
-            background: var(--gradient-accent);
-            color: white;
-            border: none;
-            border-radius: var(--radius-full);
-            font-size: var(--text-base);
+            gap: 1rem;
+            font-size: 1.5rem;
             font-weight: 500;
+            color: var(--white);
             text-decoration: none;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            background: var(--gradient);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-accent);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-top: 2rem;
+            box-shadow: 
+                0 10px 40px rgba(102, 126, 234, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
         }
 
-        .portfolio-button::before {
+        .cta-button::before {
             content: '';
             position: absolute;
             top: 0;
@@ -294,12 +235,14 @@
             transition: left 0.6s ease;
         }
 
-        .portfolio-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(156, 99, 255, 0.4);
+        .cta-button:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 20px 60px rgba(102, 126, 234, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.2);
         }
 
-        .portfolio-button:hover::before {
+        .cta-button:hover::before {
             left: 100%;
         }
 
@@ -307,17 +250,23 @@
             transition: transform 0.3s ease;
         }
 
-        .portfolio-button:hover .button-icon {
-            transform: translateX(6px);
+        .cta-button:hover .button-icon {
+            transform: translateX(10px) rotate(90deg);
         }
 
-        /* ===========================================
-           АНИМАЦИИ
-           =========================================== */
+        .footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -325,155 +274,202 @@
             }
         }
 
-        .visiting-card > * {
-            animation: fadeInUp 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+        .header,
+        .photo-section,
+        .description,
+        .contacts,
+        .cta-button {
+            animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
             opacity: 0;
         }
 
         .header { animation-delay: 0.1s; }
-        .content { animation-delay: 0.2s; }
-        .contacts { animation-delay: 0.3s; }
-        .portfolio-button { animation-delay: 0.4s; }
+        .photo-section { animation-delay: 0.3s; }
+        .description { animation-delay: 0.5s; }
+        .contacts { animation-delay: 0.7s; }
+        .cta-button { animation-delay: 0.9s; }
 
-        /* ===========================================
-           МОБИЛЬНАЯ АДАПТИВНОСТЬ
-           =========================================== */
         @media (max-width: 768px) {
-            .visiting-card {
-                padding: var(--spacing-lg);
-                border-radius: var(--radius-lg);
+            .main {
+                padding: 2rem 1rem;
             }
             
-            .contact-item {
-                padding: var(--spacing-sm) var(--spacing-md);
+            .name {
+                font-size: clamp(3rem, 12vw, 8rem);
             }
             
-            .portfolio-button {
-                padding: var(--spacing-md) var(--spacing-lg);
+            .profession {
+                font-size: clamp(1.25rem, 3vw, 2rem);
+                letter-spacing: 0.1em;
+            }
+            
+            .photo-section {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .description {
+                font-size: 1.25rem;
+                padding: 0 1rem;
+            }
+            
+            .contact-link {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .cta-button {
+                font-size: 1.25rem;
+                padding: 1.25rem 2.5rem;
+            }
+            
+            .contacts {
+                gap: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .visiting-card {
-                padding: var(--spacing-md);
-            }
-            
             .name {
-                font-size: 2rem;
+                font-size: clamp(2.5rem, 10vw, 6rem);
             }
             
-            .title {
-                font-size: 1.125rem;
+            .photo-section {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .description {
+                font-size: 1.1rem;
+            }
+            
+            .contacts {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
         }
+
+        /* ПАРАЛЛАКС ЭФФЕКТ */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(240, 147, 251, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 40%);
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="visiting-card">
-        <!-- ШАПКА С ИМЕНЕМ -->
+
+    <div class="parallax-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="main">
         <div class="header">
-            <h1 class="name">СТАС ДОРОШЕНКО</h1>
-            <p class="title">WEB DEVELOPER / DESIGNER / ARTIST</p>
+            <h1 class="name">Стас Дорошенко</h1>
+            <div class="profession">РАЗРАБОТЧИК • ДИЗАЙНЕР • ХУДОЖНИК</div>
         </div>
 
-        <!-- ОСНОВНОЙ КОНТЕНТ -->
         <div class="content">
-            <!-- ФОТО -->
-            <div class="photo-container">
+            <div class="photo-section">
                 <div class="photo-frame">
                     <img src="https://stasworks.github.io/images/stas2.webp" 
                          alt="Стас Дорошенко" 
-                         class="photo"
-                         loading="lazy">
+                         class="photo">
                 </div>
             </div>
 
-            <!-- ИНФОРМАЦИЯ -->
-            <div class="info">
-                <p class="description">
-                    Создаю системы с AI-интеграцией: 
-                    <span class="highlight">чат-боты с памятью</span>,
-                    <span class="highlight">CRM с нейросетями</span>, 
-                    <span class="highlight">веб-приложения</span>.
-                    <br><br>
-                    От дизайна до запуска. Современный стек.
-                    Работаю с бизнесом, который хочет автоматизировать процессы.
-                </p>
-            </div>
-        </div>
+            <p class="description">
+                Создаю AI-системы для бизнеса и не только<br>
+                От CRM до нейроконсультантов с памятью<br>
+                От дизайна до запуска. Полный цикл
+            </p>
 
-        <!-- КОНТАКТЫ -->
-        <div class="contacts">
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fab fa-telegram"></i>
-                </div>
+            <div class="contacts">
                 <a href="https://t.me/stasdor" target="_blank" class="contact-link">
-                    @stasdor
+                    <i class="fab fa-telegram contact-icon"></i>
+                    TELEGRAM
                 </a>
-            </div>
-
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fab fa-vk"></i>
-                </div>
                 <a href="https://vk.com/elmariachi" target="_blank" class="contact-link">
-                    vk.com/elmariachi
+                    <i class="fab fa-vk contact-icon"></i>
+                    VK
+                </a>
+                <a href="https://github.com/stasworks" target="_blank" class="contact-link">
+                    <i class="fab fa-github contact-icon"></i>
+                    GITHUB
                 </a>
             </div>
 
-            <div class="contact-item">
-                <div class="contact-icon">
-                    <i class="fas fa-folder"></i>
-                </div>
-                <span class="contact-link">
-                    GitHub: stasworks
-                </span>
-            </div>
+            <a href="https://stas.aiask.ru" target="_blank" class="cta-button">
+                ПОРТФОЛИО
+                <svg class="button-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
+                </svg>
+            </a>
         </div>
-
-        <!-- ОСНОВНАЯ КНОПКА -->
-        <a href="https://stas.aiask.ru" target="_blank" class="portfolio-button">
-            СМОТРЕТЬ ПОЛНОЕ ПОРТФОЛИО
-            <svg class="button-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
-            </svg>
-        </a>
+        <div class="footer">
+            <p>© 2026 • Всё, что происходит в жизни - результат МОИХ ДЕЙСТВИЙ</p>
+        </div>
     </div>
 
     <script>
-        // Простой скрипт для анимаций при наведении
-        document.addEventListener('DOMContentLoaded', function() {
-            // Плавное появление
-            const elements = document.querySelectorAll('.visiting-card > *');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                }, index * 100 + 200);
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = Math.random() * 3 + 1 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = 'rgba(255, 255, 255, 0.5)';
+            particle.style.borderRadius = '50%';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+  
+            particle.animate([
+                { transform: 'translateY(0px)', opacity: 0 },
+                { transform: `translateY(${Math.random() * 100 - 50}px)`, opacity: 1 },
+                { transform: `translateY(${Math.random() * 100}px)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                iterations: Infinity,
+                delay: Math.random() * 2000
             });
+            
+            particlesContainer.appendChild(particle);
+        }
 
-            // Эффект при наведении на контакты
-            const contacts = document.querySelectorAll('.contact-item');
-            contacts.forEach(contact => {
-                contact.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateX(8px)';
-                });
-                contact.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateX(0)';
-                });
-            });
-
-            // Параллакс эффект для фона
-            document.addEventListener('mousemove', function(e) {
-                const x = e.clientX / window.innerWidth;
-                const y = e.clientY / window.innerHeight;
-                
-                document.body.style.backgroundPosition = 
-                    `${50 + x * 10}% ${50 + y * 10}%`;
-            });
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            document.querySelector('.parallax-bg').style.transform = 
+                `translate(${x * 20}px, ${y * 20}px)`;
+            
+            document.querySelector('.photo-frame').style.transform = 
+                `scale(1.02) rotate(${x * 2}deg)`;
         });
+
+        // Анимация при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.header, .photo-section, .description, .contacts, .cta-button')
+            .forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
